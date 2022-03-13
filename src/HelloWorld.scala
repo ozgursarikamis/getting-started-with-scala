@@ -26,5 +26,14 @@ object HelloWorld extends App {
   def myFunction (x: Int, y: Int): String = {
     "Result of the function is: " + y + " " + x
   }
+
+  // recursive function:
+  def factorial(n:Int): Int = {
+    if (n <= 0) 1
+    else n * factorial(n - 1)
+  }
+
   println(myFunction(3, 5))
+
+  println(factorial(5))
 }
