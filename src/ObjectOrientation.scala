@@ -39,4 +39,12 @@ class ObjectOrientation extends App {
   trait Carnivore {
     def eat(a: Animal): Unit
   }
+
+  // single-class inheritance, multi-trait mixing...
+  class Crocodile extends Animal with Carnivore {
+    override def eat(a: Animal): Unit = println("I am eating you")
+
+    // or:
+    override def eat(): Unit = super.eat()
+  }
 }
