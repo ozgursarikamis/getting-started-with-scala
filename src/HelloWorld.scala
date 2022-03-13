@@ -1,5 +1,6 @@
 package com.zanatech
 
 object HelloWorld extends App {
-  println("Hello Scala World")
+  val meaningOfLife: String = "Hello Scala World"
+  println(meaningOfLife)
 }
