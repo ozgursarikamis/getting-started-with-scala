@@ -29,4 +29,9 @@ class ObjectOrientation extends App {
    val aDeclaredAnimal: Animal = new Dog("Hachi")
    aDeclaredAnimal.eat()
   // the most derived function will be called at runtime
+
+  abstract class WalkingAnimal {
+    val hasLegs = true // all fields and methods are by default public.
+    def walk(): Unit
+  }
 }
