@@ -1,42 +1,15 @@
 package com.zanatech
 
 object HelloWorld extends App {
-  val meaningOfLife: String = "Hello Scala World"
-  println(meaningOfLife)
+  // Unit return type:
 
-  val ifExpress = if (meaningOfLife.length > 10) "long sentence" else "this is short"
-  println(ifExpress)
+  // as a type of side-effects
 
-  val chainedIfExpress = if (meaningOfLife.length > 100) "long sentence"
-    else if (meaningOfLife.length < 0) "It's negative?"
-    else if (meaningOfLife.isEmpty) "there's no sentence"
-    else "meaningless"
-
-  println(chainedIfExpress)
-
-  val codeBlock = {
-    // definitions
-    val aLocalValue = 65
-    "Code Block Result is: " + aLocalValue + 35 // last expression, hence the value of this block.
+  def unitReturnType(): Unit = {
+    println("I am returning nothing...")
   }
 
-  println(codeBlock)
+  val a: Unit = unitReturnType()
+  print(a) // a us undefined. prints `()`
 
-  //  define a function
-  def myFunction (x: Int, y: Int): String = {
-    "Result of the function is: " + y + " " + x
-  }
-
-  // recursive function:
-  def factorial(n:Int): Int = {
-    if (n <= 0) 1
-    else n * factorial(n - 1)
-  }
-
-  println(myFunction(3, 5))
-
-  println(factorial(5))
-
-  // In scala, using loops or iterations are discouraged.
-  // Instead, recursive functions should be used.
 }
