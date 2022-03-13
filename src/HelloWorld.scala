@@ -23,6 +23,8 @@ object HelloWorld extends App {
   println(codeBlock)
 
   //  define a function
-  def myFunction (x: Int, y: Int): String = "Result of the function is: " + y + " " +  x
+  def myFunction (x: Int, y: Int): String = {
+    "Result of the function is: " + y + " " + x
+  }
   println(myFunction(3, 5))
 }
