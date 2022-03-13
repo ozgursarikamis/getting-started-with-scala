@@ -23,5 +23,10 @@ class ObjectOrientation extends App {
 
   val dog = new Dog("Lessie")
   // constructor arguments are not fields!
-  dog.name // won't compile
+  // dog.name // won't compile
+
+  // sub-type polymorphism:
+   val aDeclaredAnimal: Animal = new Dog("Hachi")
+   aDeclaredAnimal.eat()
+  // the most derived function will be called at runtime
 }
