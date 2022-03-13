@@ -58,4 +58,18 @@ class ObjectOrientation extends App {
   aCroc.eat(dog)
   aCroc eat dog // infix notation for single-parameter methods.
   aCroc ?! "What if we could fly.."
+
+  // anonymous classes:
+  var dinosaur = new Carnivore {
+    override def eat(a: Animal): Unit = println("I am a dinosaur, I can eat pretty much everything...")
+  }
+
+  /*
+  class Carnivore_Anonymous_123456 extends Carnivore {
+    override def eat(a: Animal): Unit = println("I am a dinosaur, I can eat pretty much everything...")
+  }
+
+  val dinosaur = new Carnivore_Anonymous_123456
+
+   */
  }
