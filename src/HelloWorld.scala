@@ -20,5 +20,9 @@ object HelloWorld extends App {
     "Code Block Result is: " + aLocalValue + 35 // last expression, hence the value of this block.
   }
 
-  print(codeBlock)
+  println(codeBlock)
+
+  //  define a function
+  def myFunction (x: Int, y: Int): String = "Result of the function is: " + y + " " +  x
+  println(myFunction(3, 5))
 }
