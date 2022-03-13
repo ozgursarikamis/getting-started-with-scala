@@ -17,5 +17,11 @@ class ObjectOrientation extends App {
   val myAnimal = new Animal
 
   // inheritance
-  class Dog() extends Animal
+  class Dog(name: String ) extends Animal {
+    // `name` is constructor-defined
+  }
+
+  val dog = new Dog("Lessie")
+  // constructor arguments are not fields!
+  dog.name // won't compile
 }
