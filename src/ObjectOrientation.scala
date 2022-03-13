@@ -12,4 +12,10 @@ class ObjectOrientation extends App {
     // methods:
     def eat(): Unit = println("Eating...")
   }
+
+  // instance
+  val myAnimal = new Animal
+
+  // inheritance
+  class Dog() extends Animal
 }
