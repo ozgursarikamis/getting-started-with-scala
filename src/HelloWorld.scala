@@ -36,4 +36,7 @@ object HelloWorld extends App {
   println(myFunction(3, 5))
 
   println(factorial(5))
+
+  // In scala, using loops or iterations are discouraged.
+  // Instead, recursive functions should be used.
 }
