@@ -13,4 +13,12 @@ object HelloWorld extends App {
     else "meaningless"
 
   println(chainedIfExpress)
+
+  val codeBlock = {
+    // definitions
+    val aLocalValue = 65
+    "Code Block Result is: " + aLocalValue + 35 // last expression, hence the value of this block.
+  }
+
+  print(codeBlock)
 }
