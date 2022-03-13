@@ -34,4 +34,9 @@ class ObjectOrientation extends App {
     val hasLegs = true // all fields and methods are by default public.
     def walk(): Unit
   }
+
+  // interfaces = Ultimate abstraction type
+  trait Carnivore {
+    def eat(a: Animal): Unit
+  }
 }
