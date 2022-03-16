@@ -1,5 +1,3 @@
-package com.zanatech
-
 object HelloWorld extends App {
   // Unit return type:
 
@@ -10,6 +8,9 @@ object HelloWorld extends App {
   }
 
   val a: Unit = unitReturnType()
-  print(a) // a us undefined. prints `()`
+  println(a) // a us undefined. prints `()`
+
+  val r = scala.util.Random
+  println(r.nextInt(100))
 
 }
