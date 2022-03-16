@@ -72,4 +72,19 @@ class ObjectOrientation extends App {
   val dinosaur = new Carnivore_Anonymous_123456
 
    */
+
+  // Singleton object
+  object MySingleton {
+    val mySpecialValue = 53278
+    def mySpecialMethod(): Int = 5555
+    def apply(x: Int): Int = x + 1
+  }
+
+  MySingleton.mySpecialMethod()
+
+  MySingleton.apply(65)
+  MySingleton(65) // equivalent to MySingleton.apply(65)
+
+
+
  }
