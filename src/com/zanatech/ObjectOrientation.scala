@@ -85,6 +85,35 @@ class ObjectOrientation extends App {
   MySingleton.apply(65)
   MySingleton(65) // equivalent to MySingleton.apply(65)
 
+  object Animal { // class Animal and object Animal is companions
+      // companions can access each other's private fields/methods
+      // singleton Animal and instances of Animal class are different things.
 
+    val canLiveIndefinitely = false
+  }
 
+  val animalsCanLiveForever = Animal.canLiveIndefinitely // 'static' fields/methods
+
+  /*
+    case classes = lightweight data structures with some boilerplate
+    - sensible equals and hash code
+    - serialization
+    - companion with apply
+    - pattern matching
+  */
+
+  case class Person(name: String, age: Int)
+
+  // case classes can be constructed without `new`.
+  val bob = Person("Bob", 54)
+
+  // exceptions:
+  try {
+    val x: String = null
+    x.length
+  } catch {
+    case e: Exception => "Some faulty error message"
+  } finally {
+    // execute some code, no matter what.
+  }
  }
