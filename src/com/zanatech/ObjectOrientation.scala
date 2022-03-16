@@ -1,6 +1,6 @@
 //package com.zanatech
 
-class ObjectOrientation extends App {
+object ObjectOrientation extends App {
   // class declaration
   class Animal {
 
@@ -116,4 +116,26 @@ class ObjectOrientation extends App {
   } finally {
     // execute some code, no matter what.
   }
+
+  // Generics
+  abstract class MyList[T] {
+    def head: T
+    def tail: MyList[T]
+  }
+
+  val aList: List[Int] = List(1, 2, 3, 4) // List.apply(1, 2, 3, 4)
+  val first = aList.head
+  val rest = aList.tail
+
+  val aStringList = List("Hello", "Scala")
+  val firstString = aStringList.head
+
+  // Point #1 : In Scala, we usually operate with IMMUTABLE values/objects
+  //            Any modification to an object must return ANOTHER object
+
+    // Benefits:
+    // 1: works miracles in multithreaded / distributed env
+    // 2: helps making sense of the code "reasoning about"
+
+  val reversedList = aList.reverse // returns a NEW list.
  }
