@@ -67,4 +67,14 @@ object FunctionalProgramming extends App {
   } yield s"$number-$letter"
 
   println(alternativePairs)
+
+  val aList = List(1, 2, 3)
+  var firstElement = aList.head
+  val rest = aList.tail
+
+  val aPrependedList = 0 :: aList
+  println(aPrependedList)
+
+  val anExtendedList = 0 +: aList :+ 6
+  print(anExtendedList)
 }
