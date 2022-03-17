@@ -60,4 +60,11 @@ object FunctionalProgramming extends App {
   val allPairs = List(1, 2, 3).flatMap(number => List('a', 'b', 'c').map(letter => s"$number-$letter"))
   println(allPairs)
 
+  // `FOR` COMPREHENSIONS:
+  val alternativePairs = for {
+    number <- List(1, 2, 3)
+    letter <- List('a', 'b', 'c')
+  } yield s"$number-$letter"
+
+  println(alternativePairs)
 }
