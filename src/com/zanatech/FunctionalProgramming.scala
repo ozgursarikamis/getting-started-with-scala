@@ -68,6 +68,7 @@ object FunctionalProgramming extends App {
 
   println(alternativePairs)
 
+  // LISTS:
   val aList = List(1, 2, 3)
   var firstElement = aList.head
   val rest = aList.tail
@@ -76,5 +77,62 @@ object FunctionalProgramming extends App {
   println(aPrependedList)
 
   val anExtendedList = 0 +: aList :+ 6
-  print(anExtendedList)
+  println(anExtendedList)
+
+  // SEQUENCES:
+  val aSequence: Seq[Int] = Seq(1, 2, 3) // Seq.apply(1, 2, 3)
+  val accessedElement = aSequence(2)
+  println(accessedElement)
+
+  // vectors: fast Seq implementation
+  val aVector = Vector(1, 2, 3, 4, 5)
+  println(aVector)
+
+  // sets:
+  val aSet = Set(1, 2, 3, 4, 4, 5, 5)
+  println(aSet) // order is not important in a set collection
+
+  val aSetHas6 = aSet.contains(6)
+  println(aSetHas6)
+
+  val anAddedSet = aSet + 6 // `+` is a method name in Scala
+  println(anAddedSet)
+
+  val aRemovedSet = aSet - 3
+  println(aRemovedSet)
+
+  // Ranges:
+
+  val aRange = 1 to 10
+  println(aRange)
+
+  val twoByTwo = aRange.map(x => 2 * x).toList
+  println(twoByTwo)
+
+  val twoByTwo_set = aRange.map(x => 2 * x).toSet
+  println(twoByTwo_set)
+
+  val twoByTwo_seq = aRange.map(x => 2 * x).toSeq
+  println(twoByTwo_seq) // Vector(2, 4, 6, 8, 10, 12, 14, 16, 18, 20)
+
+  // TUPLES
+  val aTuple = ("Bon Jovi", "Rock", 1982, false)
+  println(aTuple)
+  println(aTuple._1)
+  println(aTuple._2)
+  println(aTuple._3)
+  println(aTuple._4)
+
+  println()
+  aTuple.productIterator.foreach(x => println(x))
+  println()
+
+  // MAPS:
+  val aMap: Map[String, Int] = Map(
+    ("Daniel", 654321),
+    "Jane" -> 4445232
+  )
+
+  println(aMap("Daniel"))
+  println(aMap("Jane"))
 }
