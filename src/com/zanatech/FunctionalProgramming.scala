@@ -1,3 +1,5 @@
+package com.zanatech
+
 object FunctionalProgramming extends App {
   class Person(name: String) {
     def apply(age: Int): Unit = println(s"My name is $name, I have aged $age years")
