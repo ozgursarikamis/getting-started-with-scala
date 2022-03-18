@@ -1,3 +1,5 @@
+package com.zanatech
+
 object HelloWorld extends App {
   // Unit return type:
 
