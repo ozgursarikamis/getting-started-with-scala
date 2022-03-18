@@ -60,4 +60,16 @@ object Advanced extends App {
 
   // future is a collection which contains a value when it's evaluated.
   // future is composable with map, flatMap and filter
+
+  // IMPLICITS:
+
+    // #1 IMPLICIT ARGUMENTS:
+  def aMethodWithImplicitArgs(implicit arg: Int): Int = arg + 1
+  def aMethodWithImplicitArgs2(implicit arg: String): String = arg + 1
+  implicit val myImplicitInt: Int = 46
+  implicit val myImplicitInt2: String = "46"
+
+  println(aMethodWithImplicitArgs)
+  println(aMethodWithImplicitArgs2)
+
 }
