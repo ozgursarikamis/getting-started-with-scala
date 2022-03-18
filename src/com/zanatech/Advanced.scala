@@ -1,5 +1,7 @@
 package com.zanatech
 
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 import scala.util.{Failure, Success, Try}
 
 object Advanced extends App {
@@ -43,4 +45,19 @@ object Advanced extends App {
     case Success(validValue) => s"I have obtained a valid string: $validValue"
     case Failure(exception) => s"I have obtained an exception $exception"
   }
+
+  // Asynchronous Programming
+  val aFuture = Future {
+    println("loading...")
+    Thread.sleep(1000)
+    println("I have computed a value")
+    75
+  }
+
+  Thread.sleep(2000)
+  println(aFuture) // may print Future(<not completed>)
+  //  Normally we should expect to print: Future(Success(75))
+
+  // future is a collection which contains a value when it's evaluated.
+  // future is composable with map, flatMap and filter
 }
