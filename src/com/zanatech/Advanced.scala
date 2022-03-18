@@ -72,4 +72,12 @@ object Advanced extends App {
   println(aMethodWithImplicitArgs)
   println(aMethodWithImplicitArgs2)
 
+    // #2 IMPLICIT CLASS
+  implicit class MyRichInteger(n: Int) {
+//      def isEven: Boolean = n % 2 == 0
+      def isEven(): Boolean = n % 2 == 0
+  }
+
+//  println(23.isEven)
+  println(23.isEven()) // compiler does this: new MyRichInteger(23).isEven()
 }
