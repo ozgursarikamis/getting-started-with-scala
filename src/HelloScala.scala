@@ -2,6 +2,39 @@ package com.zanatech
 
 object HelloScala extends App {
 
+  abstract class BaseEmployee {
+    val first: String
+    val last: String
+    override def toString: String = first + " " + last // abstract classes can have default definitions
+  }
+
+  abstract class DepartmentEmployee extends BaseEmployee {
+    private val secret = "This is a scret value"
+
+    val department: String
+    val departmentCode: String
+    val numberOfStocks: Int
+
+    override def toString: String = s" $first $last ($numberOfStocks)"
+
+  }
+
+  class RnDEmployee(f: String, l: String) extends DepartmentEmployee {
+    val first: String = f
+    val last: String = l
+    val department: String = "Research and Development"
+    val departmentCode = "R&D"
+    val numberOfStocks: Int = 100
+  }
+
+  class MarketingEmployee(f: String, l: String) extends DepartmentEmployee {
+    val first: String = f
+    val last: String = l
+    val department: String = "Marketing"
+    val departmentCode = "MKT"
+    val numberOfStocks: Int = 85
+  }
+
   class Employee(firstName: String, lastName: String, s: Int) {
 
     private val departmentByCode: Map[String, String] = Map(
@@ -29,12 +62,7 @@ object HelloScala extends App {
     override def toString: String = firstName + " " + lastName + " " + stocks
   }
 
-  val bob = new Employee("Bob", "Martin", 10)
-  println(bob.getFirst)
-  println(bob.getLast)
-  println(bob.getStocks)
-  val stockAfterAward: Unit = bob.awardMoreStocks(100)
-  println(bob.getStocks, stockAfterAward)
-
-  println(bob.getDepartmentName("HR"))
+  val rnDEmployee = new RnDEmployee("rndFirst", "RndLast")
+  println(rnDEmployee)
+  println(rnDEmployee.toString)
 }
