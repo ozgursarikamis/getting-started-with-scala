@@ -8,4 +8,7 @@ object HelloScala extends App {
 
   val bob = new Employee("Bob", "Martin")
   println(bob.toString)
+
+  //  println(bob.firstName)
+  // value firstName is not a member of com.zanatech.HelloScala.Employee
 }
