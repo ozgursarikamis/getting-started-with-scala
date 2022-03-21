@@ -7,7 +7,7 @@ object HelloScala extends App {
   }
 
   abstract class DepartmentEmployee extends BaseEmployee {
-    private val secret = "This is a scret value"
+    private val secret = "This is a secret value"
 
     val department: String
     val departmentCode: String
