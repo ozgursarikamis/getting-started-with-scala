@@ -1,5 +1,3 @@
-package com.zanatech
-
 object HelloScala extends App {
 
   abstract class BaseEmployee {
