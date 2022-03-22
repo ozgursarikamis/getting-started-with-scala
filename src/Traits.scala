@@ -21,4 +21,15 @@ object Traits extends App {
 
   val result = repo.get("a")
   println(result)
+
+  class Human
+
+  class Employee extends Human with Db
+
+  val employee: Db = new Employee
+
+  employee.save("e1", "Bob Martin")
+  employee.save("e2", "Amy Jones")
+
+  employee.get("e2")
 }
