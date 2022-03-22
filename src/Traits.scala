@@ -35,6 +35,14 @@ object Traits extends App {
 }
 
 object AnotherTraitApp extends App {
+
+  //  Case classes are good for modeling immutable data
+  case class Message(sender: String, recipient: String, body: String)
+  val message1 = Message("guillaume@quebec.ca", "jorge@catalonia.es", "Ça va ?")
+
+  println(message1.sender)  // prints guillaume@quebec.ca
+  //  message1.sender = "travis@washington.us"  // this line does not compile
+
   case class Event(id: Int, location: String, dayOfWeek: String, sessionTime: Integer, source: String)
 
   val event1 = Event(1, "US", "Sun", 10, "Twitter")
