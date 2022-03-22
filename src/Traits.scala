@@ -33,3 +33,26 @@ object Traits extends App {
 
   employee.get("e2")
 }
+
+object AnotherTraitApp extends App {
+  case class Event(id: Int, location: String, dayOfWeek: String, sessionTime: Integer, source: String)
+
+  val event1 = Event(1, "US", "Sun", 10, "Twitter")
+  val event2 = Event(2, "China", "Mon", 15, "WeChat")
+  val event3 = Event(3, "New Zealand", "Thu", 30, "Linkedin")
+
+  trait EventsInterface {
+    def get(eventId: Int): Option[Event]
+    def all: List[Event]
+  }
+
+  class Events(val events: List[Event]) extends EventsInterface {
+    override def get(eventId: Int): Option[Event] = events.find(_.id == eventId)
+
+    override def all: List[Event] = events
+  }
+
+  val events = new Events(List(event1, event2, event3))
+  println(events.get(1))
+  println(events.all)
+}
