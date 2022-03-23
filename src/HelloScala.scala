@@ -1,3 +1,4 @@
+
 import ParameterizedPair.HttpUtils.HttpVerb
 
 object HelloScala extends App {
@@ -14,10 +15,15 @@ object ParameterizedPair {
 
   def main(args: Array[String]): Unit = {
     import scala.util.Try
+    import scala.util.Failure
+    import scala.util.Success
 
-      def toHttpVerb(httpVerb: String): Try[HttpVerb] =
+      def toHttpVerb(httpVerb: String): Option[HttpVerb] =
         Try {
           HttpUtils.asHttpVerb(httpVerb)
+        } match {
+          case Success(value) => Some(value)
+          case Failure(_) => None
         }
 
     println(toHttpVerb("GET")) // returns Success(GET)
