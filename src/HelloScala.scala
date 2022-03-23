@@ -17,14 +17,18 @@ object ParameterizedPair {
     import scala.util.Try
     import scala.util.Failure
     import scala.util.Success
+    import scala.util.Either
 
-      def toHttpVerb(httpVerb: String): Option[HttpVerb] =
+      def toHttpVerb(httpVerb: String): Either[Throwable, HttpVerb] =
         Try {
           HttpUtils.asHttpVerb(httpVerb)
-        }.toOption
+        } match {
+          case Success(value) => Right(value)
+          case Failure(exception) => Left(exception)
+        }
 
-    println(toHttpVerb("GET")) // returns Success(GET)
-    println(toHttpVerb("G3T")) // returns Failure(G3T)
+    println(toHttpVerb("GET"))
+    println(toHttpVerb("G3T"))
 
   }
 
