@@ -13,10 +13,15 @@ object ParameterizedPair {
   }
 
   def main(args: Array[String]): Unit = {
+    import scala.util.Try
 
-    def toHttpVerb(httpVerb: String): HttpVerb = HttpUtils.asHttpVerb(httpVerb)
+      def toHttpVerb(httpVerb: String): Try[HttpVerb] =
+        Try {
+          HttpUtils.asHttpVerb(httpVerb)
+        }
 
-    println(toHttpVerb("GET"))
+    println(toHttpVerb("GET")) // returns Success(GET)
+    println(toHttpVerb("G3T")) // returns Failure(G3T)
 
   }
 
