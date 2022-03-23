@@ -21,10 +21,7 @@ object ParameterizedPair {
       def toHttpVerb(httpVerb: String): Option[HttpVerb] =
         Try {
           HttpUtils.asHttpVerb(httpVerb)
-        } match {
-          case Success(value) => Some(value)
-          case Failure(_) => None
-        }
+        }.toOption
 
     println(toHttpVerb("GET")) // returns Success(GET)
     println(toHttpVerb("G3T")) // returns Failure(G3T)
