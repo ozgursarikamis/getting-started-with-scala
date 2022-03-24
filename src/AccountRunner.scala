@@ -24,4 +24,10 @@ object AccountRunner extends App {
   val a3 = new Account("Account 0")
 
   println(a3._id, a3._name, a3._dateOpened)
+
+  a1._name = "Updated Name"
+  a1._id = UUID.randomUUID() // not a safe way
+
+  println()
+  println(a1._name, a1._id)
 }
