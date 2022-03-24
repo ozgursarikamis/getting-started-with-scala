@@ -13,7 +13,6 @@ object AccountRunner extends App {
     }
   }
 
-
   val a1 = new Account(UUID.randomUUID(), "Account 1", LocalDateTime.now)
   val a2 = new Account(UUID.randomUUID(), "Account 2", LocalDateTime.now.plusHours(6))
 
@@ -21,4 +20,8 @@ object AccountRunner extends App {
   println(a1._id)
   println(a1._name)
   println(a1._dateOpened)
+
+  val a3 = new Account("Account 0")
+
+  println(a3._id, a3._name, a3._dateOpened)
 }
