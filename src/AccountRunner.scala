@@ -7,6 +7,10 @@ object AccountRunner extends App {
     var _id: UUID = id
     var _name: String = name
     var _dateOpened: LocalDateTime = dateOpened
+
+    def this(name: String) {
+      this(UUID.randomUUID(), name, LocalDateTime.now())
+    }
   }
 
 
