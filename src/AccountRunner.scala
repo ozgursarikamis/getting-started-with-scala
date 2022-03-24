@@ -15,6 +15,7 @@ object AccountRunner extends App {
     def getId: UUID = _id
     def getName: String = _name
     def getDateOpened: LocalDateTime = _dateOpened
+    def updateName(newName: String): Unit = _name = newName
   }
 
   val a1 = new Account(UUID.randomUUID(), "Account 1", LocalDateTime.now)
@@ -34,4 +35,7 @@ object AccountRunner extends App {
 
   println()
   println(a1.getName, a1.getId)
+
+  a1.updateName("This is new name")
+  println(a1.getName)
 }
