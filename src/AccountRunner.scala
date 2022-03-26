@@ -18,24 +18,20 @@ object AccountRunner extends App {
     def updateName(newName: String): Unit = _name = newName
   }
 
-  val a1 = new Account(UUID.randomUUID(), "Account 1", LocalDateTime.now)
-  val a2 = new Account(UUID.randomUUID(), "Account 2", LocalDateTime.now.plusHours(6))
+  class CreditAccount(name: String) extends Account(name: String) {
+    private val _accountType = "Credit"
+    def getAccountType: String = _accountType
+  }
 
-  println(a1)
-  println(a1.getId)
-  println(a1.getName)
-  println(a1.getDateOpened)
+  class DepositAccount(name: String) extends Account(name: String) {
+    private val _accountType: String = "Deposit"
+    def getAccountType: String = _accountType
+  }
 
-  val a3 = new Account("Account 0")
+  val ca1: CreditAccount = new CreditAccount("Travel Mastercard")
+  println(ca1.getId, ca1.getName, ca1.getAccountType)
 
-  println(a3.getId, a3.getName, a3.getDateOpened)
+  val da2: DepositAccount = new DepositAccount("Super Savings")
+  println(da2.getId, da2.getName, da2.getDateOpened, da2.getAccountType)
 
-  //  a1._name = "Updated Name"   // Does not compile, the class member is decorated with val now.
-  //  a1._id = UUID.randomUUID()    // Does not compile, the class member is decorated with val now.
-
-  println()
-  println(a1.getName, a1.getId)
-
-  a1.updateName("This is new name")
-  println(a1.getName)
 }
