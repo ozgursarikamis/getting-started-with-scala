@@ -3,10 +3,11 @@ import java.util.UUID
 
 object AccountRunner extends App {
 
-  class Account(id: UUID, name: String, dateOpened: LocalDateTime) {
+  abstract class Account(id: UUID, name: String, dateOpened: LocalDateTime) {
     private var _id: UUID = id
     private var _name: String = name
     private var _dateOpened: LocalDateTime = dateOpened
+    val _accountType: String
 
     def this(name: String) {
       this(UUID.randomUUID(), name, LocalDateTime.now())
@@ -16,22 +17,27 @@ object AccountRunner extends App {
     def getName: String = _name
     def getDateOpened: LocalDateTime = _dateOpened
     def updateName(newName: String): Unit = _name = newName
+    def getAccountType: String = _accountType
   }
 
   class CreditAccount(name: String) extends Account(name: String) {
-    private val _accountType = "Credit"
-    def getAccountType: String = _accountType
+    override val _accountType: String = "Credit"
   }
 
   class DepositAccount(name: String) extends Account(name: String) {
-    private val _accountType: String = "Deposit"
-    def getAccountType: String = _accountType
+    override val _accountType: String = "Deposit"
   }
 
-  val ca1: CreditAccount = new CreditAccount("Travel Mastercard")
-  println(ca1.getId, ca1.getName, ca1.getAccountType)
+  val ca1: Account = new CreditAccount("Travel Mastercard")
 
-  val da2: DepositAccount = new DepositAccount("Super Savings")
-  println(da2.getId, da2.getName, da2.getDateOpened, da2.getAccountType)
+  println(ca1.getId)
+  println(ca1.getName)
+  println(ca1.getAccountType)
+  println()
 
+  val da1: Account = new DepositAccount("Super Savings")
+
+  println(da1.getId)
+  println(da1.getName)
+  println(da1.getAccountType)
 }
