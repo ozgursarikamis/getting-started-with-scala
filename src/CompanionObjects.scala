@@ -19,21 +19,37 @@ object CompanionObjects extends App {
     }
   }
 
-  class Person { var name = "" }
+  class Person {
+    var name: Option[String] = None
+    var age: Option[Int] = None
+
+    override def toString: String = s"$name, $age"
+  }
+
   object Person {
-    def apply(name: String): Person = {
-      var p = new Person
+    def apply(name: Option[String]): Person = {
+      val p = new Person
       p.name = name
       p
     }
-  }
-  //  Creating new instances without the new keyword
-  val zenMasters = List(
-    Person("Nansen"),
-    Person("NanseJoshu")
-  )
 
-  val p = Person("Fred Flinstone")
-  // val p = Person.apply("Fred Flinstone") // Behind the scenes
+    def apply(name: Option[String], age: Option[Int]): Person = {
+      val p = new Person
+      p.name = name
+      p.age = age
+      p
+    }
+  }
+
+  val p1 = Person(Some("Fred"))
+  val p2 = Person(None)
+
+  val p3 = Person(Some("Wilma"), Some(33))
+  val p4 = Person(Some("Wilma"), None)
+
+  println(p1)
+  println(p2)
+  println(p3)
+  println(p4)
 
 }
