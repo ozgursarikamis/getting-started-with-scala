@@ -52,5 +52,17 @@ object Traits extends App {
   animals.append(dog)
   animals.append(cat)
   animals.foreach(pet => println(pet.name))
+
+  class c1
+  class c2
+  class c3
+
+  trait t1
+  trait t2
+  trait t3
+
+  //  class c4 extends c3 with c2 // Compile error
+  class c4 extends t1 with t2 with t3
+  trait t4 extends t1 with t2 with t3
 }
 
