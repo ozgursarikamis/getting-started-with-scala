@@ -19,37 +19,18 @@ object CompanionObjects extends App {
     }
   }
 
-  class Person {
-    var name: Option[String] = None
-    var age: Option[Int] = None
+  class Person(var name: String, var age: Int)
 
-    override def toString: String = s"$name, $age"
-  }
+  // Just as adding an apply method in a companion object lets you construct new object instances,
+  // adding an unapply lets you de-construct object instances.
 
   object Person {
-    def apply(name: Option[String]): Person = {
-      val p = new Person
-      p.name = name
-      p
-    }
-
-    def apply(name: Option[String], age: Option[Int]): Person = {
-      val p = new Person
-      p.name = name
-      p.age = age
-      p
-    }
+    def unapply(p: Person): String = s"${p.name}, ${p.age}"
   }
 
-  val p1 = Person(Some("Fred"))
-  val p2 = Person(None)
+  val p = new Person("Lori", 29)
+  val result = Person.unapply(p)
 
-  val p3 = Person(Some("Wilma"), Some(33))
-  val p4 = Person(Some("Wilma"), None)
-
-  println(p1)
-  println(p2)
-  println(p3)
-  println(p4)
+  println(result)
 
 }
