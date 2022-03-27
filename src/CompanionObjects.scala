@@ -6,4 +6,16 @@ object CompanionObjects extends App {
   */
   class Pizza {}
   object Pizza {}
+
+  //  a companion object and its class can access each other’s private members (fields and methods)
+
+  object SomeClass {
+    private val HiddenFileName = "/tmp/foo.bar"
+  }
+
+  class SomeClass {
+    def printFileName(): Unit = {
+      println(SomeClass.HiddenFileName)
+    }
+  }
 }
