@@ -18,4 +18,22 @@ object CompanionObjects extends App {
       println(SomeClass.HiddenFileName)
     }
   }
+
+  class Person { var name = "" }
+  object Person {
+    def apply(name: String): Person = {
+      var p = new Person
+      p.name = name
+      p
+    }
+  }
+  //  Creating new instances without the new keyword
+  val zenMasters = List(
+    Person("Nansen"),
+    Person("NanseJoshu")
+  )
+
+  val p = Person("Fred Flinstone")
+  // val p = Person.apply("Fred Flinstone") // Behind the scenes
+
 }
