@@ -1,6 +1,6 @@
 package com {
   package zanatech {
-    package entites {
+    package entities {
       case class AnotherUser(f: String, l:String)
     }
   }
@@ -8,7 +8,7 @@ package com {
 
 package main {
 
-  import com.zanatech.entites.AnotherUser
+  import com.zanatech.entities.AnotherUser
 
   class Runner extends App {
     val u: AnotherUser = AnotherUser("Tim", "Cook")
