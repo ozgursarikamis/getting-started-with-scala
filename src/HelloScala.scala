@@ -1,3 +1,9 @@
 object HelloScala extends App {
-  println("Hello Scala World")
+  var stockPrice = 14
+  lazy val volume = { println("Assigning lazy val"); 100 }
+
+  println("Calculating final value")
+  var finalValue = stockPrice * volume
+
+  println(s"Final value is: $finalValue")
 }
