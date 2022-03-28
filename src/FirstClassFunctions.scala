@@ -67,4 +67,9 @@ object FunctionLiteralsAndPlaceholdersExample extends App {
   )
 
   println(d.toList)
+
+  println()
+  val priceDelta = (_: Double) - (_: Double)
+
+  println(priceDelta(9, 3))
 }
