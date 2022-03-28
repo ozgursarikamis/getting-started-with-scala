@@ -49,3 +49,22 @@ object FunctionsShorthand extends App {
   println(addThreeNumbers(3, 6, 7))
   println(addThreeNumbers.apply(3, 6, 7))
 }
+
+object FunctionLiteralsAndPlaceholdersExample extends App {
+  val source = io.Source.fromFile("src/resources/GOOG.csv")
+
+  val d = for {
+    line <- source.getLines().drop(1).toVector
+    cols = line.split(",").map(_.trim)
+  } yield StockRecord(
+    cols(0),
+    cols(1).toFloat,
+    cols(2).toFloat,
+    cols(3).toFloat,
+    cols(4).toFloat,
+    cols(5).toFloat,
+    cols(6).toDouble
+  )
+
+  println(d.toList)
+}
