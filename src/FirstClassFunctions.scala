@@ -33,3 +33,19 @@ object FunctionPlaceholders extends App {
   val upperCaseStockTickers = stockTickers.map(_.toUpperCase())
   println(upperCaseStockTickers)
 }
+
+object FunctionsShorthand extends App {
+  val sayHello = () => println("Hello Scala Functions World")
+  sayHello()
+  sayHello.apply()
+  println()
+
+  val multiplyBy100 = (x: Int) => x * 100
+  println(multiplyBy100(44))
+  println(multiplyBy100.apply(44))
+
+  println()
+  val addThreeNumbers = (x: Int, y: Int, z: Int) => x + y + z
+  println(addThreeNumbers(3, 6, 7))
+  println(addThreeNumbers.apply(3, 6, 7))
+}
