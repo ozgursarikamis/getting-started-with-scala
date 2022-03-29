@@ -20,3 +20,15 @@ object PartialFunctions {
     println("Divide 64 by 3: " + (if (divide64By.isDefinedAt(3)) divide64By(3)))
   }
 }
+
+object PartialFunctionsWithPatternMatching {
+  def main(args: Array[String]): Unit = {
+    val divide64By: PartialFunction[Int, Int] = {
+      case x: Int if x != 0 => 64 / x
+    }
+
+    println("Is Defined At 0: " + divide64By.isDefinedAt(0))
+    println("Is Defined At 11: " + divide64By.isDefinedAt(11))
+    println("Divide 64 by 3: " + (if (divide64By.isDefinedAt(3)) divide64By(3)))
+  }
+}
