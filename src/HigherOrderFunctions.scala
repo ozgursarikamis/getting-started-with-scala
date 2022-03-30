@@ -8,4 +8,10 @@ object HigherOrderFunctions extends App {
 
   println(urlBuilder(ssl = false, "google"))
   println(urlBuilder(ssl = false, "google")("v1", "v2"))
+
+  // HOF: Sample 2
+  def format[R](z: R) = "{" + z.toString + "}"
+  def apply(x: Double => String, y: Double) = x(y)
+
+  println(apply(format, 32))
 }
