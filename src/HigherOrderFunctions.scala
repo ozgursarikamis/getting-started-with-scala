@@ -14,4 +14,9 @@ object HigherOrderFunctions extends App {
   def apply(x: Double => String, y: Double) = x(y)
 
   println(apply(format, 32))
+
+  val num = List(7, 8, 9)
+  def multiplyValue = (y: Int) => y * 3
+  val result = num.map(y => multiplyValue(y))
+  println(result)
 }
